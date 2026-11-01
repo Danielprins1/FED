@@ -45,7 +45,8 @@ Zo wist ik bijvoorbeeld niet dat je bij `display: flex` ook `flex-wrap` moet geb
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   Home pagina 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  <img src="readme-images/HomeTelefoon.png" width="375px" alt="De home pagina op telefoon bij binnenkomst">
+    <img src="readme-images/HomeTelefoon2.png" width="375px" alt="De home pagina op telefoon bij chocoladerepen">
 
   De homepage bestaat uit verschillende onderdelen waarin de chocoladeproducten en de missie van Tony's centraal staan. Er is een chocoladecarrousel, informatie over hun missie, zakelijke chocolade en nieuws.
   
@@ -54,7 +55,8 @@ Zo wist ik bijvoorbeeld niet dat je bij `display: flex` ook `flex-wrap` moet geb
   #### Screenshot(s) van de tweede pagina (small screen):
   Tony Chocolonely website 
    
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="omschrijving van de pagina">
+  <img src="readme-images/OnzeBelofteTelefoon.png" width="375px" alt="De onze belofte pagina op telefoon bij binnenkomst">
+  <img src="readme-images/OnzeBelofteTelefoon2.png" width="375px" alt="De onze belofte pagina op telefoon bij uitklapfunctie">
   Op deze pagina vertelt Tony's meer over hun missie en hoe ze uitbuiting in de cacao-industrie willen tegengaan. De pagina bestaat uit veel grote afbeeldingen, tekstblokken en onderdelen die je kunt uitklappen.
   
   Deze pagina is interessant omdat er veel verschillende soorten content door elkaar worden gebruikt. De uitdaging zit voor mij vooral in het overzichtelijk houden van de pagina, ook op kleinere schermen.
