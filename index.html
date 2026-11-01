@@ -1,21 +1,303 @@
 <!DOCTYPE html>
+
 <html lang="nl">
-	
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="author" content="jouw naam">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
-	<title>Howdy FED2526</title>
-	
-	<link href="styles/style.css" rel="stylesheet">
-	<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+  <meta charset="UTF-8">
+  <meta name="author" content="Daniël Prins">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Tony's Chocolonely</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Roboto+Slab:wght@400;700;800&display=swap"
+    rel="stylesheet">
+  <link href="styles/style.css" rel="stylesheet">
+  <link rel="icon" type="image/jpeg" href="images/favicon.jpeg">
 </head>
 
 <body>
-	<h1>Howdy FED2526</h1>
+  <a href="#inhoud">ga direct naar de inhoud</a>
 
-	<script defer src="scripts/script.js"></script>
+  <header>
+    <p>gratis verzending vanaf €50</p>
+
+    <!-- Thema kiezen: werkt met alleen CSS (:has en light-dark) -->
+    <form>
+      <fieldset>
+        <legend>thema</legend>
+        <label><input type="radio" name="thema" value="auto" checked> auto</label>
+        <label><input type="radio" name="thema" value="licht"> licht</label>
+        <label><input type="radio" name="thema" value="donker"> donker</label>
+      </fieldset>
+    </form>
+
+    <nav aria-label="hoofdmenu">
+      <ul>
+        <li><a href="index.html" aria-current="page">home</a></li>
+        <li><a href="#">chocoshop</a></li>
+        <li><a href="#">gepersonaliseerd</a></li>
+        <li><a href="#">zakelijk</a></li>
+        <li><a href="onze-belofte.html">onze belofte</a></li>
+        <li><a href="#">super store</a></li>
+        <li><a href="#">over Tony's</a></li>
+        <li><a href="#">contact</a></li>
+      </ul>
+    </nav>
+
+    <ul aria-label="snelkoppelingen">
+      <li><a href="#"><img src="images/icon-taal.svg" alt="taal: Nederlands"></a></li>
+      <li><a href="#"><img src="images/icon-zoeken.svg" alt="zoeken"></a></li>
+      <li><a href="#"><img src="images/icon-account.svg" alt="mijn account"></a></li>
+      <li>
+        <a href="#">
+          <img src="images/icon-mandje.svg" alt="winkelmandje">
+          <output>0</output>
+        </a>
+      </li>
+    </ul>
+  </header>
+
+  <main id="inhoud">
+
+    <!-- ========== HERO ========== -->
+    <section id="hero">
+      <h1>chocolade cadeaus die verder gaan dan <span>lekker</span></h1>
+      <p>Het perfecte persoonlijke cadeau, of het nu is voor een verjaardag, bruiloft, Valentijnsdag, een bedankje of
+        wat je verder nog kunt bedenken. Ontdek onze cadeau-ideeën.. voor chocofans en zakelijke klanten.</p>
+      <img src="images/hero-reep.webp" alt="Een opengescheurde rode Tony's-reep melkchocolade met rondvliegende stukjes"
+        width="900" height="1263">
+    </section>
+
+    <!-- ========== PRODUCTEN ========== -->
+    <section id="shop">
+      <h2>Tony's Chocolonely</h2>
+      <p>..oftewel jouw favoriete winkel voor (h)eerlijke cadeaus. Kijk eens rond in onze chocoshop voor cadeau-ideeën
+        voor je moeder, je lieve collega's, je beste vriendin of gewoon voor jezelluf! Gratis bezorgd vanaf €50,-.</p>
+      <a href="#">bekijk alle chocolade</a>
+
+      <ul>
+        <li>
+          <article>
+            <h3>je bent een topper reep - melk karamel zeezout</h3>
+            <img src="images/reep-topper.webp" alt="Paarse reep met een gouden beker en de tekst je bent een top"
+              width="526" height="990">
+            <p>nieuw</p>
+            <p>180 gram, 1 reep</p>
+            <p>€5,49 incl. BTW</p>
+            <button aria-label="voeg je bent een topper reep toe aan je mandje">+</button>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>filled Tony's chocolade - alle smaken</h3>
+            <img src="images/filled-alle-smaken.webp" alt="Drie filled repen: groen, oranje en roze" width="526"
+              height="328">
+            <p>nieuw</p>
+            <p>389 gram, 3 repen</p>
+            <p>€12,99 incl. BTW</p>
+            <p>uitverkocht!</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>filled melkchocolade karamel zeezout crunch</h3>
+            <img src="images/filled-karamel.webp" alt="Oranje filled reep met zachte karamel zeezout" width="526"
+              height="657">
+            <p>nieuw</p>
+            <p>135 gram, 1 reep</p>
+            <p>€4,39 incl. BTW</p>
+            <button aria-label="voeg filled melkchocolade karamel zeezout crunch toe aan je mandje">+</button>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>filled melkchocolade praline hazelnoot crunch</h3>
+            <img src="images/filled-hazelnoot.webp" alt="Groene filled reep met zachte hazelnoot praline" width="526"
+              height="658">
+            <p>nieuw</p>
+            <p>127 gram, 1 reep</p>
+            <p>€4,39 incl. BTW</p>
+            <p>uitverkocht!</p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3>filled melkchocolade truffel</h3>
+            <img src="images/filled-truffel.webp" alt="Roze filled reep met zachte truffel" width="526" height="657">
+            <p>nieuw</p>
+            <p>127 gram, 1 reep</p>
+            <p>€4,39 incl. BTW</p>
+            <p>uitverkocht!</p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ========== ONZE BELOFTE ========== -->
+    <section id="belofte">
+      <h2>onze belofte</h2>
+      <p>We zijn Tony's Chocolonely. Ons doel is een einde te maken aan uitbuiting in cacao; door te strijden tegen
+        armoede, kinderarbeid en ontbossing in de cacao-industrie. Niet alleen voor de cacao in onze chocolade, maar
+        voor de cacao in alle chocolade wereldwijd. Dus wat zeg je ervan.. Doe je mee?</p>
+      <a href="#">lees meer</a>
+      <img src="images/belofte-vuist.webp" alt="Een witte vuist die een Tony's-reep omhoog houdt" width="900"
+        height="643">
+    </section>
+
+    <!-- ========== NIEUWTJES ========== -->
+    <section id="nieuws">
+      <h2>nieuwtjes</h2>
+      <p>Wil je weten waar we bij Tony's Chocolonely mee bezig zijn? Dan zit je op de juiste plek! Lees alles over onze
+        recente campagnes, impact hoogtepunten en meer – je vindt 't allemaal hieronder..</p>
+
+      <ul>
+        <li>
+          <article>
+            <h3><a href="#">super alert: een heerlijke nieuwe reep!</a></h3>
+            <img src="images/nieuws-4.webp" alt="" width="674" height="674">
+            <p><strong>nieuws</strong> <time datetime="2026-10-05">05 oktober 2026</time></p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3><a href="#">Wij gaan op wereldreis in eigen land!</a></h3>
+            <img src="images/nieuws-wereldreis.webp" alt="" width="674" height="674">
+            <p><strong>campagnes</strong> <time datetime="2026-08-18">18 augustus 2026</time></p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3><a href="#">de bittere realiteit op deze Dag tegen Kinderarbeid</a></h3>
+            <img src="images/nieuws-kinderarbeid.webp" alt="" width="674" height="674">
+            <p><strong>missie</strong> <time datetime="2026-06-12">12 juni 2026</time></p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h3><a href="#">DE CHOCOLATE SCORECARD IS BINNEN</a></h3>
+            <img src="images/nieuws-scorecard.webp" alt="" width="674" height="674">
+            <p><strong>nieuws</strong> <time datetime="2026-05-08">08 mei 2026</time></p>
+          </article>
+        </li>
+      </ul>
+
+      <a href="#">lees al ons nieuws</a>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <section id="nieuwsbrief">
+      <h2>Serious Friends worden?</h2>
+      <p>word Serious Friends met ons en we houden je op de hoogte van ons laatste impact nieuws. Enne.. tuurlijk laten
+        we het ook weten wanneer er nieuwe choco aan komt!</p>
+      <form action="#">
+        <label for="email">je e-mailadres</label>
+        <input type="email" id="email" name="email" placeholder="en je e-mailadres komt hier" autocomplete="email"
+          required>
+        <button type="submit">ja, hou me op de hoogte</button>
+      </form>
+    </section>
+
+    <nav aria-label="footermenu">
+      <section>
+        <h2>chocoshop</h2>
+        <ul>
+          <li><a href="#">alle choco</a></li>
+          <li><a href="#">kies je chocomoment</a></li>
+          <li><a href="#">180 gram repen</a></li>
+          <li><a href="#">90 gram repen</a></li>
+          <li><a href="#">50 gram repen</a></li>
+          <li><a href="#">filled repen</a></li>
+          <li><a href="#">Tiny Tony's</a></li>
+          <li><a href="#">Lil' bits</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>gepersonaliseerd</h2>
+        <ul>
+          <li><a href="#">alle gepersonaliseerde choco</a></li>
+          <li><a href="#">gepersonaliseerde giveaways</a></li>
+          <li><a href="#">personaliseer een grote reep</a></li>
+          <li><a href="#">personaliseer een kleine reep</a></li>
+          <li><a href="#">pre-designed templates</a></li>
+          <li><a href="#">mijn ontwerpen</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>over ons</h2>
+        <ul>
+          <li><a href="#">onze belofte</a></li>
+          <li><a href="#">Tony's Impact</a></li>
+          <li><a href="#">vacatures</a></li>
+          <li><a href="#">nieuws</a></li>
+          <li><a href="#">Tony's Super Store</a></li>
+          <li><a href="#">spreekbeurtpakket</a></li>
+          <li><a href="#">Chocolonely Foundation</a></li>
+          <li><a href="#">Tony's Open Chain</a></li>
+          <li><a href="#">Tony's jaarFAIRslag 2024/2025</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>contact</h2>
+        <ul>
+          <li><a href="#">contact</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">bezorginformatie</a></li>
+          <li><a href="#">algemene voorwaarden</a></li>
+          <li><a href="#">verzendingsbeleid</a></li>
+          <li><a href="#">terugbetalingsbeleid</a></li>
+          <li><a href="#">privacybeleid</a></li>
+          <li><a href="#">cookie declaration</a></li>
+          <li><a href="#">Speak Up beleid</a></li>
+          <li><a href="#">Code of Conduct</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>zakelijk</h2>
+        <ul>
+          <li><a href="#">personaliseer repen met logo en huisstijl</a></li>
+          <li><a href="#">waarom zakelijk Tony's kopen</a></li>
+          <li><a href="#">word een zakelijke klant</a></li>
+          <li><a href="#">verkoop Tony's producten</a></li>
+          <li><a href="#">account upgraden</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <section id="volgen">
+      <h2>volgen doe je hier</h2>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">X</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </section>
+
+    <section id="betalen">
+      <h2>betaalmethoden</h2>
+      <ul>
+        <li>Visa</li>
+        <li>Mastercard</li>
+        <li>iDEAL</li>
+      </ul>
+    </section>
+
+    <section id="grappen">
+      <h2>Tony's website voet-tekstgrappen generator..</h2>
+      <img src="images/reepje-grappen.webp" alt="" width="100" height="211">
+      <p>Welke planeet is heel blij? Joepi-ter!</p>
+      <button>meh..</button>
+    </section>
+  </footer>
+
+  <script src="scripts/script.js" defer></script>
+
 </body>
-	
+
 </html>
