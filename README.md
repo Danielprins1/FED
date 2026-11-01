@@ -96,15 +96,15 @@ Het laatste puntje, en misschien ook wel het vervelendste, is dat er bij afbeeld
 
 <details>
   <summary>uitwerken na afloop 3<sup>e</sup> werkgroep</summary>
+  Voor de breakdownschets heb ik de hele homepage van Tony's op papier uitgewerkt. Ik heb hierbij gekeken welke HTML-elementen ik nodig had, zoals h1, h2, h3, p, img, a en button. Vooral bij de verschillende contentblokken moest ik nadenken over hoe ik de onderdelen het beste kon groeperen.
 
   ### de hele pagina: 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van de hele pagina">
+  <img src="readme-images/werktekening2-index.png" width="375px" alt="breakdown van de hele pagina">
+  In mijn eerste plan wilde ik de chocoladecarrousel van Tony's namaken. Tijdens het bouwen heb ik uiteindelijk gekozen voor een productgrid met plusknoppen, waarmee je chocolade kunt toevoegen aan je winkelmandje. Als je op het plusje klikt, gaat de teller omhoog en vliegt er een chocoladereepje richting de winkelmand.
 
   ### dynamisch deel (bijv menu): 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van een dynamisch deel">
-
-  ### wellicht nog een dynamisch deel (bijv filter): 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van nog een dynamisch deel">
+  <img src="readme-images/werktekening-index.png" width="375px" alt="breakdown van een dynamisch deel">
+  Op de pagina 'Onze belofte' heb ik uitklapbare onderdelen gemaakt met <details> en <summary>. Hiermee kun je extra informatie bekijken zonder dat alles meteen zichtbaar is. Ik heb hiervoor gekozen omdat deze HTML-elementen de functionaliteit al ondersteunen, zonder dat ik daar JavaScript voor hoef te schrijven.
 
 </details>
 
@@ -148,7 +148,34 @@ Het laatste puntje, en misschien ook wel het vervelendste, is dat er bij afbeeld
   <summary>uitwerken na test in 9<sup>e</sup> werkgroep</summary>
 
   ### Bevindingen
-  Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er verbeterd is):
+  Voor mijn tweede toegankelijkheidstest heb ik mijn eigen versie van de Tony's Chocolonely-website getest. Hierbij heb ik opnieuw gekeken naar de toetsenbordnavigatie, de screenreader en de visuele toegankelijkheid. Ik heb beide pagina's getest en gekeken of ik de problemen uit de eerste test heb kunnen verbeteren.
+
+Toetsenbordnavigatie
+De toetsenbordnavigatie werkt goed. Als je met Tab door de website gaat, verschijnt als eerste de skiplink. Hiermee kun je direct naar de inhoud springen en de navigatie overslaan. Ook blijft de focus overal goed zichtbaar en volgt de Tab-volgorde netjes de opbouw van de pagina.
+
+Bij de chocoladecarrousel kun je met Enter of spatie een reep toevoegen. De teller gaat dan omhoog en het reepje vliegt richting de winkelmand. Ook de themaschakelaar werkt met het toetsenbord. Met de pijltjestoetsen kun je kiezen tussen licht, donker en automatisch.
+
+Op de pagina 'Onze belofte' kun je de uitklapbare onderdelen met Enter openen en sluiten. Ook de grappenknop werkt met het toetsenbord en geeft iedere keer een nieuwe grap. Ik ben eigenlijk best tevreden over hoe dit werkt, omdat je de website zonder muis kunt gebruiken.
+
+Screenreader
+Bij het testen met de screenreader heb ik deze keer de rotor gebruikt om door de headings te navigeren. Dit ging goed. De headings worden in de juiste volgorde voorgelezen, van niveau 1 naar niveau 2 en 3. Ook worden de verschillende onderdelen van de pagina, zoals de header, navigatie, main en footer, goed herkend.
+
+De links worden duidelijk voorgelezen, waardoor je weet waar je naartoe gaat. Bij de chocoladecarrousel wordt niet alleen de naam van het product genoemd, maar hoor je na het toevoegen ook de nieuwe stand van de teller.
+
+Een van de verbeteringen ten opzichte van de originele website is het winkelmandje. Waar Tony's zelf 'mn tassie' gebruikte, heb ik ervoor gezorgd dat mijn screenreader gewoon 'winkelmandje' voorleest, inclusief het aantal producten. Dat lijkt me een stuk duidelijker.
+
+Ook de grappenknop heeft nu een duidelijke naam. Eerst werd deze nog als 'meh..' aangekondigd, maar dat heb ik aangepast zodat je meteen begrijpt wat de knop doet.
+
+Bij de afbeeldingen heb ik bewust onderscheid gemaakt tussen decoratieve afbeeldingen en afbeeldingen die informatie bevatten. De nieuwsfoto's hebben bijvoorbeeld een lege alt-tekst, zodat de screenreader deze overslaat. Bij de infographic op de pagina 'Onze belofte' wordt juist de volledige beschrijving voorgelezen, inclusief het getal dat in de afbeelding staat.
+
+Visuele toegankelijkheid
+Bij het controleren van het kleurcontrast kwam ik nog wel een probleem tegen. De zwarte tekst heeft op de rode achtergrond een slecht contrastratio. Ik heb er daarom voor gekozen om de tekst wit te maken op de rode achtergrond. Dat zorgt voor een duidelijk contrast.
+
+Wat wel goed werkt, is het inzoomen naar 200%. Er gaan geen onderdelen overlappen, er valt niets weg en alles blijft gewoon bereikbaar. Ook op telefoonformaat en desktop blijven beide pagina's goed werken, zonder dat de content buiten het scherm valt.
+
+Ook heb ik gekeken naar de animaties. Wanneer je prefers-reduced-motion aanzet, verdwijnt de animatie van het vliegende chocoladereepje. Dat vind ik een goede oplossing, omdat mensen die gevoelig zijn voor beweging hierdoor geen onnodige animaties te zien krijgen.
+
+Als laatste heb ik beide pagina's door de W3C-validator gehaald. Hier kwamen geen fouten uit.
 
 </details>
 
@@ -176,19 +203,22 @@ Het laatste puntje, en misschien ook wel het vervelendste, is dat er bij afbeeld
   <summary>uitwerken voor eindgesprek</summary>
 
   ### Je uitkomst - karakteristiek screenshots:
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
+  <img src="readme-images/Index-computer.png" width="375px" alt="uitomst website">
+  <img src="readme-images/Nieuwtjes-index.png" width="375px" alt="uitomst website">
+  <img src="readme-images/Chocolade-Index.png" width="375px" alt="uitomst website">
+  <img src="readme-images/Chocolade-carrousel.png" width="375px" alt="uitomst website">
 
 
   ### Dit ging goed/Heb ik geleerd: 
 Ik ben heel blij met de homepagina. Hij lijkt enorm op de echte site en er zijn veel verschillende secties die goed zijn nagemaakt. En responsive ook. Ik heb veel geleerd over toegankelijkheid en het dus ook zoveel mogelijk toegepast zodat deze pagina beter werkt dan de originele.
 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="top">
+  <img src="readme-images/Telefoon-sectie-index.png" width="375px" alt="top">
 
 
   ### Dit was lastig/Is niet gelukt:
   De website 1/1 te laten lijken. Ik heb uiteindelijk meer gefocused op de toegankelijkheid en leesbaarheid dan echt op de aesthetiek. De lettertypes zijn niet top gelukt. Ook vind ik het jammer dat ik nogsteeds niet alles zonder echt op te zoeken uit mn hoofd de verschillende elementen kent. Het is veel zoekwerk geweest. Javascript vond ik ook heel moeilijk. Ik heb daar nooit echt een knobbel voor gehad, maar het is gelukt en daar ben ik wel heel trots op
 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="bummer">
+  <img src="readme-images/grappengenerator-sectie-iphone.png" width="375px" alt="bummer">
 </details>
 
 
@@ -204,5 +234,6 @@ Ik ben heel blij met de homepagina. Hij lijkt enorm op de echte site en er zijn 
   2. Internet Archive / Wayback Machine — de versie van nl.tonyschocolonely.com van 4 juli 2026
   3. Google Fonts — Alfa Slab One en Roboto Slab
   4. De A11y Project checklist — voor de toegankelijkheidstests
+  5. Section en article vergelijken. (n.d.). https://chatgpt.com/c/6ae76332-5810-83eb-a522-ba66ae07f821
 
 </details>
