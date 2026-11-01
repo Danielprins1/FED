@@ -204,7 +204,7 @@ body>header {
   column-gap: 1em;
   padding: 0 1em 0.5em;
   background-color: var(--rood);
-  color: var(--zwart);
+  color: var(--wit);
   font-weight: 800;
 }
 
@@ -306,6 +306,7 @@ body>header output {
   height: 1.4em;
   border-radius: 50%;
   background-color: var(--geel);
+  color: var(--zwart);
   font-size: 0.75em;
 }
 
@@ -316,12 +317,11 @@ main>section:nth-of-type(1) {
   justify-items: center;
   gap: 2em;
   background-color: var(--rood);
-  color: var(--zwart);
+  color: var(--wit);
   text-align: center;
 }
 
 main>section:nth-of-type(1) h1 {
-  color: var(--wit);
   font-size: clamp(1.8rem, 6vw, 3.8rem);
   line-height: 1.05;
 }
@@ -512,10 +512,6 @@ main>section:nth-of-type(3) {
   justify-items: center;
   gap: 2em;
   background-color: var(--rood);
-  color: var(--zwart);
-}
-
-main>section:nth-of-type(3) h2 {
   color: var(--wit);
 }
 
@@ -596,7 +592,7 @@ footer {
   gap: 4em;
   padding: 4em 1em;
   background-color: var(--rood);
-  color: var(--zwart);
+  color: var(--wit);
 }
 
 footer h2 {
@@ -690,6 +686,7 @@ footer>section:nth-of-type(3) ul {
 footer>section:nth-of-type(3) li {
   padding: 0.2em 0.6em;
   background-color: var(--wit);
+  color: var(--zwart); 
   font-weight: 800;
 }
 
@@ -701,6 +698,7 @@ footer>section:nth-of-type(4) {
   gap: 1em;
   padding: 2em;
   background-color: var(--wit);
+   color: var(--zwart);
 }
 
 footer>section:nth-of-type(4) h2 {
