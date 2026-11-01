@@ -55,8 +55,8 @@ Zo wist ik bijvoorbeeld niet dat je bij `display: flex` ook `flex-wrap` moet geb
   #### Screenshot(s) van de tweede pagina (small screen):
   Tony Chocolonely website 
    
-  <img src="readme-images/OnzeBelofteTelefoon.png" width="375px" alt="De onze belofte pagina op telefoon bij binnenkomst">
-  <img src="readme-images/OnzeBelofteTelefoon2.png" width="375px" alt="De onze belofte pagina op telefoon bij uitklapfunctie">
+  <img src="readme-images/OnzeBelofteTelefoon.PNG" width="375px" alt="De onze belofte pagina op telefoon bij binnenkomst">
+  <img src="readme-images/OnzeBelofteTelefoon2.PNG" width="375px" alt="De onze belofte pagina op telefoon bij uitklapfunctie">
   Op deze pagina vertelt Tony's meer over hun missie en hoe ze uitbuiting in de cacao-industrie willen tegengaan. De pagina bestaat uit veel grote afbeeldingen, tekstblokken en onderdelen die je kunt uitklappen.
   
   Deze pagina is interessant omdat er veel verschillende soorten content door elkaar worden gebruikt. De uitdaging zit voor mij vooral in het overzichtelijk houden van de pagina, ook op kleinere schermen.
@@ -84,7 +84,7 @@ Toen ik de website ging inspecteren, ontdekte ik dat die headings er wel waren. 
 Wat me ook opviel, is dat de winkelmand door de screenreader werd voorgelezen als 'mn tassie'. Dit past natuurlijk helemaal bij Tony's, maar ik denk dat het voor iemand die de website niet kan zien best verwarrend kan zijn. Je mist namelijk de visuele context. Ik zou daarom voor de screenreader gewoon 'winkelmand' gebruiken, zodat meteen duidelijk is wat ermee bedoeld wordt.
 
 Visuele toegankelijkheid
-Bij de visuele toegankelijkheid viel me op dat de zwarte tekst op een rode achtergrond op sommige plekken niet genoeg contrast heeft. Hierdoor is de tekst minder goed leesbaar.  Ik heb dit gecontroleerd met de kleurenpikker in Chrome DevTools en kwam uit op een contrastratio van 4,46:1. Volgens de WCAG moet normale tekst minimaal 4,5:1 hebben. De tekst zit hier dus net onder en voldoet daarmee niet aan de WCAG-richtlijn voor kleurcontrast (1.4.3 Contrast Minimum).
+Bij de visuele toegankelijkheid viel me op dat de zwarte tekst op een rode achtergrond op sommige plekken niet genoeg contrast heeft. Hierdoor is de tekst minder goed leesbaar.  Ik heb dit gecontroleerd met de kleurenpikker in Chrome DevTools en kwam uit op een contrastratio van 4,46:1. Volgens de WCAG moet normale tekst minimaal 4,5:1 hebben. De tekst zit hier dus net onder en voldoet daarmee niet aan de WCAG-richtlijn voor kleurcontrast.
 
 Wat wel goed ging, was het inzoomen naar 200%. De onderdelen gingen bij mij niet door elkaar lopen en alles bleef gewoon leesbaar.
 
@@ -101,11 +101,11 @@ Het laatste puntje, en misschien ook wel het vervelendste, is dat er bij afbeeld
   Voor de breakdownschets heb ik de hele homepage van Tony's op papier uitgewerkt. Ik heb hierbij gekeken welke HTML-elementen ik nodig had, zoals h1, h2, h3, p, img, a en button. Vooral bij de verschillende contentblokken moest ik nadenken over hoe ik de onderdelen het beste kon groeperen.
 
   ### de hele pagina: 
-  <img src="readme-images/werktekening2-index.png" width="375px" alt="breakdown van de hele pagina">
+  <img src="readme-images/Werktekening2-index.png" width="375px" alt="breakdown van de hele pagina">
   In mijn eerste plan wilde ik de chocoladecarrousel van Tony's namaken. Tijdens het bouwen heb ik uiteindelijk gekozen voor een productgrid met plusknoppen, waarmee je chocolade kunt toevoegen aan je winkelmandje. Als je op het plusje klikt, gaat de teller omhoog en vliegt er een chocoladereepje richting de winkelmand.
 
   ### dynamisch deel (bijv menu): 
-  <img src="readme-images/werktekening-index.png" width="375px" alt="breakdown van een dynamisch deel">
+  <img src="readme-images/Werktekening-index.png" width="375px" alt="breakdown van een dynamisch deel">
   Op de pagina 'Onze belofte' heb ik uitklapbare onderdelen gemaakt met <details> en <summary>. Hiermee kun je extra informatie bekijken zonder dat alles meteen zichtbaar is. Ik heb hiervoor gekozen omdat deze HTML-elementen de functionaliteit al ondersteunen, zonder dat ik daar JavaScript voor hoef te schrijven.
 
 </details>
