@@ -1,31 +1,1035 @@
-/**************/
-/* CSS REMEDY */
-/**************/
-*, *::after, *::before {
-  box-sizing:border-box;  
+/* Fonts */
+@font-face {
+  font-family: "alfa slab";
+  src: url("../fonts/alfa-slab-one.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "roboto slab";
+  src: url("../fonts/roboto-slab-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "roboto slab";
+  src: url("../fonts/roboto-slab-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "roboto slab";
+  src: url("../fonts/roboto-slab-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: fallback;
 }
 
 
-
-
-
-
-/*********************/
-/* CUSTOM PROPERTIES */
-/*********************/
+/*  2. CUSTOM PROPERTIES + LICHT/DONKER THEMA */
 :root {
-	/* startje */
-	--color-text:#111;
-	--color-background:#eee;
+  color-scheme: light dark;
+
+  /* huisstijlkleuren */
+  --rood: #e90000;
+  --geel: #fbec5d;
+  --zwart: #000000;
+  --wit: #ffffff;
+
+  /* achtergrondkleuren van de productkaartjes */
+  --paars: #6764b4;
+  --blauw: #2f6fdb;
+  --oranje: #ee7d2e;
+  --groen: #44a12f;
+  --roze: #d42a5f;
+
+  /* kleuren die wisselen met het thema: light-dark(licht, donker) */
+  --achtergrond: light-dark(var(--wit), #17110f);
+  --tekst: light-dark(var(--zwart), #f5efe9);
+  --kop-rood: light-dark(var(--rood), #ff6b5e);
+  --kop-blauw: light-dark(var(--blauw), #86aeff);
+  --grijs: light-dark(#5c5c5c, #bdb4ad);
+
+  /* lettertypes */
+  --font-kop: "Alfa Slab One", Rockwell, Georgia, serif;
+  --font-tekst: "Roboto Slab", Rockwell, Georgia, serif;
+}
+
+/* gekozen thema met de radiobuttons in de header */
+:root:has([value="licht"]:checked) {
+  color-scheme: light;
+}
+
+:root:has([value="donker"]:checked) {
+  color-scheme: dark;
+}
+
+
+/* ==========================================================
+   3. BASIS
+   ========================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 10em;
+}
+
+body {
+  margin: 0;
+  background-color: var(--achtergrond);
+  color: var(--tekst);
+  font-family: var(--font-tekst);
+  font-size: 1.125em;
+  line-height: 1.4;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+main>section {
+  padding: 4em 1em;
+}
+
+/* de grote Tony's-koppen */
+h1,
+main>section>h2,
+footer>section:nth-of-type(1) h2 {
+  font-family: var(--font-kop);
+  font-weight: normal;
+  font-size: clamp(2.5rem, 11vw, 9.5rem);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* de dikke tekst onder de grote koppen */
+main>section>h2+p {
+  max-width: 48ch;
+  margin: 1.5em auto;
+  font-size: 1.3em;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* skiplink: alleen zichtbaar als je er met tab op komt */
+body>a:first-child {
+  position: absolute;
+  top: -10em;
+  left: 1em;
+  z-index: 10;
+  padding: 0.5em 1em;
+  background-color: var(--geel);
+  color: var(--zwart);
+}
+
+body>a:first-child:focus {
+  top: 1em;
+}
+
+
+/* ==========================================================
+   4. LINKS EN BUTTONS alle states
+   ========================================================== */
+a {
+  color: inherit;
+}
+
+a:hover {
+  text-decoration-thickness: 0.15em;
+}
+
+/* gestippelde focusrand, net als op de echte site */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 0.15em dashed currentColor;
+  outline-offset: 0.2em;
+}
+
+/* gele knoppen: links die op een knop lijken en buttons */
+main section>a,
+footer button {
+  display: inline-block;
+  padding: 0.6em 1.1em;
+  border: none;
+  background-color: var(--geel);
+  color: var(--zwart);
+  font-family: var(--font-tekst);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+main section>a:hover,
+footer button:hover {
+  text-decoration: underline;
 }
 
 
 
+/* 5. HEADER Mobiel */
+body>header {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-template-areas:
+    "tekst  tekst"
+    "thema  iconen"
+    "menu   menu";
+  align-items: center;
+  column-gap: 1em;
+  padding: 0 1em 0.5em;
+  background-color: var(--rood);
+  color: var(--zwart);
+  font-weight: 800;
+}
+
+/* gratis verzending */
+body>header>p {
+  grid-area: tekst;
+  margin: 0;
+  padding: 0.4em 0;
+  text-align: center;
+}
+
+/* thema-keuze */
+body>header form {
+  grid-area: thema;
+}
+
+body>header fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em 0.8em;
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 0.85em;
+}
+
+body>header legend {
+  float: left;
+  /* legend naast de opties in plaats van erboven */
+  margin-right: 0.3em;
+}
+
+body>header label {
+  cursor: pointer;
+}
+
+body>header input {
+  accent-color: var(--zwart);
+}
+
+/* menu */
+body>header nav {
+  grid-area: menu;
+}
+
+body>header nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2em 1.2em;
+}
+
+body>header nav a {
+  font-size: 1.15em;
+  text-decoration: none;
+}
+
+body>header nav a:hover,
+body>header nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-decoration-thickness: 0.15em;
+}
+
+/* iconen */
+body>header>ul {
+  grid-area: iconen;
+  display: flex;
+  gap: 0.2em;
+}
+
+body>header>ul a {
+  position: relative;
+  /* zodat het bolletje van het mandje hier binnen geplaatst kan worden */
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  /* groot genoeg om op te tikken */
+  height: 2.75rem;
+  color: var(--zwart);
+}
+
+body>header>ul img {
+  width: 1.7rem;
+}
+
+/* vlaggetje iets breder, met een randje zoals op de echte site */
+body>header>ul li:first-child img {
+  width: 2rem;
+  outline: 0.15em solid var(--zwart);
+}
+
+/* bolletje met het aantal producten */
+body>header output {
+  position: absolute;
+  top: 0;
+  right: -0.2em;
+  display: grid;
+  place-items: center;
+  min-width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  background-color: var(--geel);
+  font-size: 0.75em;
+}
 
 
-/****************/
-/* JOUW STYLING */
-/****************/
+/* 6. HERO  */
+main>section:nth-of-type(1) {
+  display: grid;
+  justify-items: center;
+  gap: 2em;
+  background-color: var(--rood);
+  color: var(--zwart);
+  text-align: center;
+}
 
-/* jouw code */
+main>section:nth-of-type(1) h1 {
+  color: var(--wit);
+  font-size: clamp(1.8rem, 6vw, 3.8rem);
+  line-height: 1.05;
+}
 
+/* het woord LEKKER extra groot */
+main>section:nth-of-type(1) h1 span {
+  display: block;
+  font-size: 2.6em;
+}
+
+main>section:nth-of-type(1) p {
+  max-width: 50ch;
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: 800;
+}
+
+main>section:nth-of-type(1) img {
+  width: min(100%, 30em);
+  rotate: -4deg;
+}
+
+/* 7. PRODUCTEN */
+main>section:nth-of-type(2) {
+  text-align: center;
+}
+
+/* de lijst met kaartjes: een rij die je opzij kunt scrollen */
+main>section:nth-of-type(2) ul {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(80%, 22em);
+  gap: 1em;
+  margin-top: 2em;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1em;
+  text-align: left;
+}
+
+main>section:nth-of-type(2) li {
+  scroll-snap-align: start;
+}
+
+/* productkaartje = een grid van 2 kolommen
+   kolom 1: tekst (1fr)   kolom 2: knop (max-content) */
+main>section:nth-of-type(2) article {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  column-gap: 0.5em;
+  height: 100%;
+}
+
+/* afbeelding: bovenaan over de hele breedte */
+main>ul img,
+main>section:nth-of-type(2) img {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  padding: 10%;
+  margin-bottom: 0.8em;
+}
+
+/* elke reep met eigen achtergrondkleur */
+main>ul li:nth-of-type(1) img,
+main>section:nth-of-type(2) li:nth-of-type(1) img {
+  background-color: var(--paars);
+}
+
+main>ul li:nth-of-type(2) img,
+main>section:nth-of-type(2) li:nth-of-type(2) img {
+  background-color: var(--blauw);
+}
+
+main>ul li:nth-of-type(3) img,
+main>section:nth-of-type(2) li:nth-of-type(3) img {
+  background-color: var(--oranje);
+}
+
+main>ul li:nth-of-type(4) img,
+main>section:nth-of-type(2) li:nth-of-type(4) img {
+  background-color: var(--groen);
+}
+
+main>ul li:nth-of-type(5) img,
+main>section:nth-of-type(2) li:nth-of-type(5) img {
+  background-color: var(--roze);
+}
+
+/* naam */
+main>ul h2,
+main>section:nth-of-type(2) h3 {
+  grid-row: 2;
+  grid-column: 1;
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+main>ul article p,
+main>section:nth-of-type(2) article p {
+  grid-column: 1;
+  margin: 0;
+}
+
+/* label "nieuw": linksboven over de afbeelding heen */
+main>ul article p:nth-of-type(1),
+main>section:nth-of-type(2) article p:nth-of-type(1) {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  padding: 0.1em 1.1em 0.1em 0.5em;
+  background-color: var(--geel);
+  color: var(--zwart);
+  font-weight: 800;
+  clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);
+  /* vlaggetjesvorm */
+}
+
+/* gewicht */
+main>ul article p:nth-of-type(2),
+main>section:nth-of-type(2) article p:nth-of-type(2) {
+  color: var(--grijs);
+}
+
+/* prijs */
+main>ul article p:nth-of-type(3),
+main>section:nth-of-type(2) article p:nth-of-type(3) {
+  font-weight: 700;
+}
+
+/* "uitverkocht!" en de + knop: rechts naast de naam */
+main>ul article p:nth-of-type(4),
+main>section:nth-of-type(2) article p:nth-of-type(4),
+main>ul article button,
+main>section:nth-of-type(2) article button {
+  grid-row: 2;
+  grid-column: 2;
+  align-self: start;
+}
+
+main>ul article p:nth-of-type(4),
+main>section:nth-of-type(2) article p:nth-of-type(4) {
+  font-weight: 800;
+}
+
+/* uitverkocht? naam en gewicht doorstrepen */
+main>ul article:has(p:nth-of-type(4)) h2,
+main>section:nth-of-type(2) article:has(p:nth-of-type(4)) h3,
+main>ul article:has(p:nth-of-type(4)) p:nth-of-type(2),
+main>section:nth-of-type(2) article:has(p:nth-of-type(4)) p:nth-of-type(2) {
+  text-decoration: line-through;
+}
+
+/* de gele + knop */
+main>ul article button,
+main>section:nth-of-type(2) article button {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--geel);
+  color: var(--zwart);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  transition: scale 0.15s;
+}
+
+main>ul article button:hover,
+main>section:nth-of-type(2) article button:hover {
+  scale: 1.1;
+}
+
+main>ul article button:active,
+main>section:nth-of-type(2) article button:active {
+  scale: 0.95;
+}
+
+
+/* 8. ONZE BELOFTE */
+main>section:nth-of-type(3) {
+  display: grid;
+  justify-items: center;
+  gap: 2em;
+  background-color: var(--rood);
+  color: var(--zwart);
+}
+
+main>section:nth-of-type(3) h2 {
+  color: var(--wit);
+}
+
+main>section:nth-of-type(3) p {
+  max-width: 45ch;
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: 800;
+  text-align: left;
+}
+
+
+/* 9. NIEUWTJES */
+main>section:nth-of-type(4) {
+  display: grid;
+  justify-items: center;
+}
+
+main>section:nth-of-type(4) h2 {
+  color: var(--kop-blauw);
+}
+
+/* het "magische" auto-fit grid uit grid-oefening 1 */
+main>section:nth-of-type(4) ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10em), 1fr));
+  gap: 1em 0.5em;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+/* in de HTML staat de kop eerst, met grid zetten we de afbeelding bovenaan */
+main>section:nth-of-type(4) article {
+  display: grid;
+}
+
+main>section:nth-of-type(4) img {
+  grid-row: 1;
+}
+
+main>section:nth-of-type(4) article p {
+  grid-row: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+  margin: 1em 0;
+  font-size: 1.2em;
+}
+
+main>section:nth-of-type(4) h3 {
+  grid-row: 3;
+  font-size: 1.4em;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+main>section:nth-of-type(4) h3 a {
+  text-decoration: none;
+}
+
+main>section:nth-of-type(4) h3 a:hover {
+  text-decoration: underline;
+}
+
+/* geel labeltje */
+main>section:nth-of-type(4) strong {
+  padding: 0.1em 0.4em;
+  background-color: var(--geel);
+  color: var(--zwart);
+  font-weight: 700;
+}
+
+
+/* 10. FOOTER */
+footer {
+  display: grid;
+  gap: 4em;
+  padding: 4em 1em;
+  background-color: var(--rood);
+  color: var(--zwart);
+}
+
+footer h2 {
+  font-size: 1.3em;
+  font-weight: 800;
+}
+
+/* --- nieuwsbrief --- */
+footer>section:nth-of-type(1) {
+  display: grid;
+  gap: 2em;
+}
+
+footer>section:nth-of-type(1) h2 {
+  color: var(--wit);
+  font-size: clamp(2.2rem, 8vw, 8rem);
+}
+
+footer>section:nth-of-type(1) p {
+  margin: 0;
+  font-size: 1.3em;
+  font-weight: 800;
+}
+
+footer>section:nth-of-type(1) form {
+  display: grid;
+  gap: 0.5em;
+}
+
+footer>section:nth-of-type(1) label {
+  color: var(--wit);
+  font-weight: 800;
+}
+
+footer>section:nth-of-type(1) input {
+  width: 100%;
+  padding: 1em 1.2em;
+  border: 0.15em solid var(--zwart);
+  background-color: var(--wit);
+  color: var(--zwart);
+  font-family: var(--font-tekst);
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  font-weight: 800;
+}
+
+footer>section:nth-of-type(1) input::placeholder {
+  color: #333333;
+}
+
+footer>section:nth-of-type(1) input:hover {
+  border-color: var(--wit);
+}
+
+/* verkeerd ingevuld (pas na het typen, niet meteen bij het laden) */
+footer>section:nth-of-type(1) input:user-invalid {
+  outline: 0.25em solid var(--zwart);
+  border-color: var(--wit);
+}
+
+/* footermenu: kolommen die vanzelf naast elkaar gaan staan */
+footer nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13em), 1fr));
+  gap: 2em;
+}
+
+footer ul {
+  display: grid;
+  gap: 0.6em;
+  margin-top: 1em;
+}
+
+footer li a {
+  font-size: 1.15em;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+footer li a:hover {
+  text-decoration: underline;
+}
+
+/*  socials en betaalmethoden naast elkaar */
+footer>section:nth-of-type(2) ul,
+footer>section:nth-of-type(3) ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+footer>section:nth-of-type(3) li {
+  padding: 0.2em 0.6em;
+  background-color: var(--wit);
+  font-weight: 800;
+}
+
+/*  grappengenerator: wit blok  */
+footer>section:nth-of-type(4) {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  align-items: center;
+  gap: 1em;
+  padding: 2em;
+  background-color: var(--wit);
+}
+
+footer>section:nth-of-type(4) h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+footer>section:nth-of-type(4) img {
+  width: 4em;
+}
+
+footer>section:nth-of-type(4) p {
+  margin: 0;
+  font-weight: 700;
+}
+
+footer>section:nth-of-type(4) button {
+  grid-column: 1 / -1;
+  justify-self: end;
+}
+
+
+/*  12. MINDER BEWEGING  Animaties alleen als iemand geen "reduce motion" heeft aangezet */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* reep draait een beetje als je over het kaartje gaat */
+  main>ul img,
+  main>section:nth-of-type(2) img {
+    transition: rotate 0.3s;
+  }
+
+  main>ul article:hover img,
+  main>section:nth-of-type(2) article:hover img {
+    rotate: -3deg;
+  }
+
+  /* nieuwsplaatje wordt iets groter */
+  main>section:nth-of-type(4) img {
+    transition: scale 0.3s;
+  }
+
+
+
+  main>section:nth-of-type(4) article:hover img {
+    scale: 1.03;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+
+/* 13. GROTERE SCHERMEN (mobile first) */
+
+/* tablet of telefoon liggend */
+@media (width > 40em) {
+  main>section {
+    padding-inline: 2em;
+  }
+
+  footer {
+    padding-inline: 2em;
+  }
+
+  /* nieuwsbrief: tekst links, formulier rechts */
+  footer>section:nth-of-type(1) {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  footer>section:nth-of-type(1) h2 {
+    grid-column: 1 / -1;
+  }
+}
+
+/* laptop en groter */
+@media (width > 64em) {
+
+  /* op grote schermen blijft de header bovenaan plakken */
+   body>header {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    grid-template-areas:
+      "tekst  thema"
+      "menu   iconen";
+    padding-inline: 2em;
+  }
+
+  body>header nav ul {
+    gap: 0.4em 1.2em;
+  }
+
+  body>header nav a {
+    font-size: 0.95em;
+  }
+
+
+  /* hero: reep links, tekst rechts */
+  main>section:nth-of-type(1) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4em;
+    align-content: center;
+    min-height: 85vh;
+  }
+
+  main>section:nth-of-type(1) h1 {
+    align-self: end;
+  }
+
+  main>section:nth-of-type(1)>a {
+    align-self: start;
+  }
+
+  main>section:nth-of-type(1) img {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 100%;
+  }
+
+  /* onze belofte: tekst links, vuist rechts */
+  main>section:nth-of-type(3) {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4em;
+    align-items: center;
+  }
+
+  main>section:nth-of-type(3) h2 {
+    grid-column: 1 / -1;
+  }
+
+  main>section:nth-of-type(3) p {
+    justify-self: end;
+  }
+
+  main>section:nth-of-type(3)>a {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: end;
+    align-self: start;
+  }
+
+  main>section:nth-of-type(3) img {
+    grid-column: 2;
+    grid-row: 2 / span 2;
+  }
+
+  /* footer: socials, betalen en grappen naast elkaar */
+  footer {
+    grid-template-columns: 1fr 1fr 2fr;
+    align-items: end;
+  }
+
+  footer>section:nth-of-type(1),
+  footer nav {
+    grid-column: 1 / -1;
+  }
+}
+
+/* animatie van het mandje-bolletje */
+@keyframes sprong {
+  0% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.5;
+  }
+
+  100% {
+    scale: 1;
+  }
+}
+
+header output.sprong {
+  animation-name: sprong;
+  animation-duration: 0.2s;
+  animation-iteration-count: 2;
+}
+
+/* de vliegende kopie van de reep */
+img.vliegt {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--breedte);
+  z-index: 100;
+  pointer-events: none;
+  animation-name: vliegen;
+  animation-duration: 0.7s;
+  animation-timing-function: ease-in;
+}
+
+@keyframes vliegen {
+  0% {
+    translate: var(--start-x) var(--start-y);
+    scale: 1;
+    opacity: 1;
+  }
+
+  100% {
+    translate: var(--eind-x) var(--eind-y);
+    scale: 0.1;
+    opacity: 0.4;
+  }
+}
+
+/*  14. PAGINA ONZE BELOFTE */
+
+/* opsommingen zijn hier echte lijstjes, geen raster met kaartjes */
+#belofte-pagina main>section:nth-of-type(4) ul {
+  display: block;
+  margin: 0 0 1.5em;
+  padding-left: 1.2em;
+  list-style: disc;
+}
+
+/* het grote getal 1.560.000 */
+#belofte-pagina main>section:nth-of-type(2) strong {
+  display: block;
+  font-family: var(--font-kop);
+  font-weight: normal;
+  font-size: clamp(2.5rem, 10vw, 6rem);
+  line-height: 1;
+}
+
+/* uitklapblokken */
+#belofte-pagina summary {
+  display: inline-block;
+  padding: 0.6em 1.1em;
+  background-color: var(--geel);
+  color: var(--zwart);
+  font-weight: 800;
+  cursor: pointer;
+}
+
+#belofte-pagina summary:hover {
+  text-decoration: underline;
+}
+
+#belofte-pagina details[open] summary {
+  margin-bottom: 1em;
+}
+
+#belofte-pagina details h3 {
+  margin: 1.5em 0 0.5em;
+  font-size: 1.3em;
+  font-weight: 800;
+}
+
+#belofte-pagina details p {
+  margin: 0 0 1em;
+}
+
+/* --- grotere schermen: beeld en tekst naast elkaar --- */
+@media (width > 64em) {
+  #belofte-pagina main>section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4em;
+    align-content: center;
+    text-align: left;
+  }
+
+  /* tekst niet meer centreren op deze pagina */
+  #belofte-pagina main>section>h1,
+  #belofte-pagina main>section>h2,
+  #belofte-pagina main>section>p {
+    text-align: left;
+    margin-inline: 0;
+    max-width: 45ch;
+  }
+
+  /* hero: beeld links, tekst rechts */
+  #belofte-pagina main>section:nth-of-type(1) {
+    min-height: auto;
+  }
+
+  /* het probleem: beeld links, tekst rechts */
+  #belofte-pagina main>section:nth-of-type(2) img {
+    grid-column: 1;
+    grid-row: 1 / span 5;
+    align-self: center;
+  }
+
+  #belofte-pagina main>section:nth-of-type(2)>h2,
+  #belofte-pagina main>section:nth-of-type(2)>p {
+    grid-column: 2;
+  }
+
+  /* illegale arbeid: tekst links, beeld rechts */
+  #belofte-pagina main>section:nth-of-type(3) img {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+
+  #belofte-pagina main>section:nth-of-type(3)>h2,
+  #belofte-pagina main>section:nth-of-type(3)>p {
+    grid-column: 1;
+  }
+
+  /* het uitklapblok over de volle breedte, zoals het witte paneel bij Tony's */
+  #belofte-pagina main>section>details {
+    grid-column: 1 / -1;
+    margin-top: 2em;
+  }
+
+  /* laatste sectie heeft geen beeld: één kolom */
+  #belofte-pagina main>section:nth-of-type(4) {
+    grid-template-columns: 1fr;
+  }
+
+  #belofte-pagina main>section img {
+    width: 100%;
+  }
+}
+
+/* witte paneel als het uitklapblok openstaat */
+#belofte-pagina details[open] {
+  padding: 2em;
+  background-color: var(--wit);
+  color: var(--zwart);
+}
